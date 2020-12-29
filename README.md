@@ -37,8 +37,19 @@ The first time cypress it is open it creates the cypress directory structure wit
 ![Folder structure after open cypress for the first time. ](docs/folder-structure.png)
 
 
-### Troubleshooting
-...
+### Inspecting the electron application
+An electron application will open showing all the tests holding in the cypress/integration folder.
+
+![Electron application. ](docs/electron-application.png)
+
+### Using chanccejs to addd random data to your tests.
+
+Install chancejs
+    npm install chance
+
+
+
+
 
 [node]: https://nodejs.org/en/download/
 [cypress]: https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell
