@@ -45,8 +45,76 @@ An electron application will open showing all the tests holding in the cypress/i
 ### Using chanccejs to addd random data to your tests.
 
 Install chancejs
+
     npm install chance
 
+
+Example of how to use chance in your code
+
+```
+import Chance from 'Chance';
+const chance = new Chance();
+describe('Testing chance', function (){
+   const company =chance.company();
+   it('type company in duckduckgo.com', function () {
+        cy.visit('https://duckduckgo.com/')
+        cy.get('#search_form_input_homepage')
+        .should('be.visible')
+        .type(company)
+    })
+})
+```
+
+To see all chance possible methods https://chancejs.com/
+
+### Snapshots plugin: visual testing, comparing images.
+
+Install snapshots plugin
+
+    npm i cypress-plugin-snapshots -S
+
+
+Add to the cypress.json configuration file the following:
+
+```
+{
+  "env": {
+    "cypress-plugin-snapshots": {
+      "imageConfig": {
+        "threshold": 0.01
+      }
+    }
+  },
+  "ignoreTestFiles": [
+    "**/__snapshots__/*",
+    "**/__image_snapshots__/*"
+  ]
+}
+```
+Add the plugin configuration to plugins/index.js
+
+```
+const { initPlugin } = require('cypress-plugin-snapshots/plugin');
+module.exports = (on, config) => {
+  initPlugin(on, config);
+  return config;
+}
+```
+Add the import to the support/index.js
+
+    import 'cypress-plugin-snapshots/commands';
+
+
+Use it in your test
+
+```
+ it('should test snapshot', () => {
+        cy.visit('https://duckduckgo.com/')
+        cy.contains('h1', 'Tired of ').then( theSearch => {
+            cy.wrap(theSearch).toMatchImageSnapshot()
+        })
+    })
+```
 
 
 
