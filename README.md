@@ -1,4 +1,4 @@
-![Magento2, End to End testing, Functional Testing ](m2-cypress-open-ecommerce.png)
+![Magento2, End to End testing, Functional Testing ](docs/m2-cypress-open-ecommerce.png)
 
 # Magento 2 Functional Testing
 
@@ -34,9 +34,7 @@ Run all the tests with the command below:
 
 The first time cypress it is open it creates the cypress directory structure with needed sections sample tests and cypress.json file.
 
-(folder-structure.png)
-
-
+![Folder structure after open cypress for the first time. ](docs/folder-structure.png)
 
 
 ### Troubleshooting
